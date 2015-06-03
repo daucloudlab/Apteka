@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AptekaListActivity" />
+        <activity
+            android:name=".AptekaListActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

@@ -1,7 +1,9 @@
 package kz.abcsoft.apteka;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -19,6 +21,15 @@ public class AptekaListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apteka_list);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.apteka_list_toolbar) ;
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Список Аптек");
+//        toolbar.setTitle("Список Аптек");
+//        toolbar.inflateMenu(R.menu.toolbar_menu);
+//
+
 
 
         listApteks = new ArrayList<Apteka>() ;
