@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Аптеки</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name = "search_apteks_title">Поиск аптек</string>
+
+</resources>
