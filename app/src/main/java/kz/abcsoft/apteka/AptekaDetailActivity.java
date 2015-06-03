@@ -6,19 +6,24 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ListView;
 
 import java.util.List;
 
+import kz.abcsoft.apteka.adapter.AptekaMedikamentListAdapter;
 import kz.abcsoft.apteka.adapter.TabsPagerAdapter;
 import kz.abcsoft.apteka.modle.Apteka;
+import kz.abcsoft.apteka.modle.Medikament;
 import kz.abcsoft.apteka.testdata.AptekaTestList;
+import kz.abcsoft.apteka.testdata.MedikamentTestList;
 
 
 public class AptekaDetailActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TabsPagerAdapter mAdapter;
-    private ActionBar actionBar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,8 @@ public class AptekaDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.apteka_detail_toolbar) ;
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Медикаменты");
+
 
 
     }
