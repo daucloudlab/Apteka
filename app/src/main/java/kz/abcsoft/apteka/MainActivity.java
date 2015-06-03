@@ -1,6 +1,5 @@
 package kz.abcsoft.apteka;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +8,8 @@ import android.view.MenuItem;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
+import com.mikepenz.materialdrawer.accountswitcher.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 
@@ -44,27 +45,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initNavigationDrawer(){
+
+        AccountHeader accountHeader = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.material_background)
+                .build() ;
+
         Drawer drawerResult = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
+                .withAccountHeader(accountHeader)
                 .withDisplayBelowToolbar(true)
                 .withActionBarDrawerToggleAnimated(true)
                 .addDrawerItems(
                         new PrimaryDrawerItem()
                                 .withName(R.string.nav_menu_item_apteki)
-                                .withIdentifier(1),
+                                .withIdentifier(1)
+                                .withIcon(R.drawable.ic_clinic_room_24),
 
                         new DividerDrawerItem(),
 
                         new PrimaryDrawerItem()
                                 .withName(R.string.nav_menu_item_near_apteki)
-                                .withIdentifier(2),
+                                .withIdentifier(2)
+                                .withIcon(R.drawable.ic_room_black_24dp),
 
                         new DividerDrawerItem(),
 
                         new PrimaryDrawerItem()
                                 .withName(R.string.nav_menu_item_search_medikament)
                                 .withIdentifier(3)
+                                .withIcon(R.drawable.ic_pill_24)
                 )
                 .build() ;
     }
