@@ -1,18 +1,21 @@
 package kz.abcsoft.apteka.modle;
 
 
+import java.util.List;
+
 public class Apteka {
     private int id ;
     private String title ;
     private String phone ;
-    private String address ;
+    private List<String> addresses ;
 
     public Apteka(){}
 
-    public Apteka(String title, String phone, String address){
+    public Apteka(int id, String title, String phone, List<String> addresses){
+        this.id = id ;
         this.title = title ;
         this.phone = phone ;
-        this.address = address ;
+        this.addresses = addresses ;
     }
 
     public int getId(){
@@ -35,12 +38,12 @@ public class Apteka {
         return phone ;
     }
 
-    public void setAddress(String address){
-        this.address = address ;
+    public void setAddress(List<String> addresses) {
+        this.addresses = addresses ;
     }
 
-    public String getAddress(){
-        return address ;
+    public List<String> getAddresses(){
+        return addresses ;
     }
 
 

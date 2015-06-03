@@ -35,6 +35,14 @@
         android:layout_alignParentLeft="true"
         android:textSize="13dip"
         android:text = "Шаяхметова 43"/>
+
+    <TextView
+        android:id = "@+id/pid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/address"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone"/>
     
     <ImageView
         android:layout_width="wrap_content"

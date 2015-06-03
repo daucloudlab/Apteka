@@ -50,12 +50,24 @@ public class AptekaListAdapter extends BaseAdapter{
         TextView title = (TextView)convertView.findViewById(R.id.title) ;
         TextView phone = (TextView)convertView.findViewById(R.id.phone) ;
         TextView address = (TextView)convertView.findViewById(R.id.address) ;
+        TextView pid = (TextView)convertView.findViewById(R.id.pid) ;
 
         Apteka apteka = aptekaItems.get(position) ;
 
         title.setText(apteka.getTitle());
         phone.setText(apteka.getPhone());
-        address.setText(apteka.getAddress());
+
+        List<String> aptekaAddresses = apteka.getAddresses() ;
+//        StringBuilder sb = new StringBuilder() ;
+//        for(String aptekaAddress : aptekaAddresses){
+//            sb.append(aptekaAddress + "; ") ;
+//        }
+//        address.setText(sb.toString());
+
+        // Тек бір ғана адрессті алып қоямыз
+        address.setText(aptekaAddresses.get(0)) ;
+
+        pid.setText( Integer.toString(apteka.getId()) );
 
 
         return convertView;
