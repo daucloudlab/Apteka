@@ -1,5 +1,6 @@
 package kz.abcsoft.apteka;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar ;
 
-    ArrayList<Apteka> listApteks ;
-    AptekaListAdapter adapter ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +38,6 @@ public class MainActivity extends AppCompatActivity {
         initToolbar() ;
         initNavigationDrawer();
 
-        listApteks = new ArrayList<Apteka>() ;
-
-        for(int i = 0; i < 10; i++){
-            Apteka a = new Apteka("Название аптеки " + (i+1), "87078914322", "17 мкр-н, д.10") ;
-            listApteks.add(a) ;
-        }
-
-        adapter = new AptekaListAdapter(this, listApteks ) ;
-        ListView listView = (ListView)findViewById(R.id.list) ;
-        listView.setAdapter(adapter);
 
 
 
@@ -105,7 +95,18 @@ public class MainActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(AdapterView<?> adapterView, View view, int i, long l, IDrawerItem iDrawerItem) {
-                        return false;
+
+                        switch (iDrawerItem.getIdentifier()) {
+                            case 1:
+                                Intent intent = new Intent(MainActivity.this, AptekaListActivity.class) ;
+                                startActivity(intent);
+                                return true ;
+                            case 2:
+                                return false ;
+                            case 3:
+                                return false ;
+                        }
+                        return false ;
                     }
                 })
                 .build() ;
