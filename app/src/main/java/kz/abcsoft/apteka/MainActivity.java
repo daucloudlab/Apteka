@@ -9,6 +9,8 @@ import android.view.MenuItem;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,13 +23,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initToolbar() ;
+        initNavigationDrawer();
 
-        Drawer drawerResult = new DrawerBuilder()
-                .withActivity(this)
-                .withToolbar(toolbar)
-                .withDisplayBelowToolbar(true)
-                .withActionBarDrawerToggleAnimated(true)
-                .build() ;
+
     }
 
     private void initToolbar(){
@@ -43,6 +41,32 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar.inflateMenu(R.menu.toolbar_menu) ;
 
+    }
+
+    private void initNavigationDrawer(){
+        Drawer drawerResult = new DrawerBuilder()
+                .withActivity(this)
+                .withToolbar(toolbar)
+                .withDisplayBelowToolbar(true)
+                .withActionBarDrawerToggleAnimated(true)
+                .addDrawerItems(
+                        new PrimaryDrawerItem()
+                                .withName(R.string.nav_menu_item_apteki)
+                                .withIdentifier(1),
+
+                        new DividerDrawerItem(),
+
+                        new PrimaryDrawerItem()
+                                .withName(R.string.nav_menu_item_near_apteki)
+                                .withIdentifier(2),
+
+                        new DividerDrawerItem(),
+
+                        new PrimaryDrawerItem()
+                                .withName(R.string.nav_menu_item_search_medikament)
+                                .withIdentifier(3)
+                )
+                .build() ;
     }
 
     @Override

@@ -6,4 +6,8 @@
 
     <string name = "search_apteks_title">Поиск аптек</string>
 
+    <string name = "nav_menu_item_apteki">Аптеки</string>
+    <string name = "nav_menu_item_near_apteki">Ближайщее аптеки</string>
+    <string name = "nav_menu_item_search_medikament">Поиск медикаментов</string>
+
 </resources>
