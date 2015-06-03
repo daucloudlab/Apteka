@@ -3,18 +3,20 @@ package kz.abcsoft.apteka.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kz.abcsoft.apteka.R;
 import kz.abcsoft.apteka.modle.Apteka;
 
-public class AptekaListAdapter extends BaseAdapter{
+public class AptekaListAdapter extends BaseAdapter {
     private Activity activity ;
     private LayoutInflater inflater ;
     private List<Apteka> aptekaItems ;
@@ -57,7 +59,7 @@ public class AptekaListAdapter extends BaseAdapter{
         title.setText(apteka.getTitle());
         phone.setText(apteka.getPhone());
 
-        List<String> aptekaAddresses = apteka.getAddresses() ;
+        ArrayList<String> aptekaAddresses = apteka.getAddresses() ;
 //        StringBuilder sb = new StringBuilder() ;
 //        for(String aptekaAddress : aptekaAddresses){
 //            sb.append(aptekaAddress + "; ") ;
@@ -65,7 +67,12 @@ public class AptekaListAdapter extends BaseAdapter{
 //        address.setText(sb.toString());
 
         // Тек бір ғана адрессті алып қоямыз
-        address.setText(aptekaAddresses.get(0)) ;
+        try{
+            address.setText(aptekaAddresses.get(0)) ;
+        }catch(IndexOutOfBoundsException e){
+            e.printStackTrace();
+            Log.d("ВОТ БЛИН", "ОШИБКА") ;
+        }
 
         pid.setText( Integer.toString(apteka.getId()) );
 

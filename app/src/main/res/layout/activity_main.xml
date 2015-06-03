@@ -4,8 +4,8 @@
     tools:context=".MainActivity">
 
     <include
-        android:id = "@+id/toolbar"
-        layout = "@layout/toolbar"/>
+        android:id = "@+id/main_toolbar"
+        layout = "@layout/main_toolbar"/>
 
 
 

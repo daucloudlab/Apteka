@@ -11,14 +11,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import kz.abcsoft.apteka.adapter.AptekaListAdapter;
 import kz.abcsoft.apteka.modle.Apteka;
+import kz.abcsoft.apteka.testdata.AptekaTestList;
 
 
 public class AptekaListActivity extends AppCompatActivity {
 
-    ArrayList<Apteka> listApteks ;
+    List<Apteka> listApteks ;
     AptekaListAdapter adapter ;
 
     @Override
@@ -30,23 +32,12 @@ public class AptekaListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Список Аптек");
-//        toolbar.setTitle("Список Аптек");
-//        toolbar.inflateMenu(R.menu.toolbar_menu);
+//        main_toolbar.setTitle("Список Аптек");
+//        main_toolbar.inflateMenu(R.menu.toolbar_menu);
 //
 
-
-        // Ойдан құрастырылған аптекалардың тізімі, тест үшін
-        listApteks = new ArrayList<Apteka>() ;
-        // Әр аптеканың бірнеше филиалы болуы мүмкін, сондықтан бірнеше адресі
-        ArrayList<String> aptekaAddresses = new ArrayList<String>() ;
-        aptekaAddresses.add("17 мкр-н, Д.10") ;
-        aptekaAddresses.add("Шаяхметов 43") ;
-        aptekaAddresses.add("Тауке хан 17") ;
-
-        for(int i = 0; i < 10; i++){
-            Apteka a = new Apteka((i+1), "Название аптеки " + (i+1), "87078914322", aptekaAddresses) ;
-            listApteks.add(a) ;
-        }
+        // Аптекалардың тізімін аламыз
+        listApteks = AptekaTestList.getListApteks() ;
 
         adapter = new AptekaListAdapter(this, listApteks ) ;
         ListView listView = (ListView)findViewById(R.id.list) ;
@@ -56,9 +47,9 @@ public class AptekaListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String pid = ((TextView)view.findViewById(R.id.pid)).getText().toString() ;
-//                Intent intent = new Intent(getApplicationContext(), AptekaDetailActivity.class) ;
-//                intent.putExtra("pid", pid) ;
-//                startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), AptekaDetailActivity.class) ;
+                intent.putExtra("pid", pid) ;
+                startActivity(intent);
             }
         });
 

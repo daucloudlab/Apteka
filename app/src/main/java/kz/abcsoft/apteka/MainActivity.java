@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initToolbar(){
-        toolbar = (Toolbar)findViewById(R.id.toolbar) ;
+        toolbar = (Toolbar)findViewById(R.id.main_toolbar) ;
         toolbar.setTitle(R.string.app_name);
 
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
