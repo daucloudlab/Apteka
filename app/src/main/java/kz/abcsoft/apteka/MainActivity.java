@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -16,10 +17,18 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
+import java.util.ArrayList;
+
+import kz.abcsoft.apteka.adapter.AptekaListAdapter;
+import kz.abcsoft.apteka.modle.Apteka;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar ;
+
+    ArrayList<Apteka> listApteks ;
+    AptekaListAdapter adapter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +37,19 @@ public class MainActivity extends AppCompatActivity {
 
         initToolbar() ;
         initNavigationDrawer();
+
+        listApteks = new ArrayList<Apteka>() ;
+
+        for(int i = 0; i < 10; i++){
+            Apteka a = new Apteka("Название аптеки " + (i+1), "87078914322", "17 мкр-н, д.10") ;
+            listApteks.add(a) ;
+        }
+
+        adapter = new AptekaListAdapter(this, listApteks ) ;
+        ListView listView = (ListView)findViewById(R.id.list) ;
+        listView.setAdapter(adapter);
+
+
 
 
     }
