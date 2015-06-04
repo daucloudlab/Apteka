@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +22,8 @@ import kz.abcsoft.apteka.testdata.AptekaTestList;
 
 
 public class AptekaListActivity extends AppCompatActivity {
+
+    EditText aptekaSearch ;
 
     List<Apteka> listApteks ;
     AptekaListAdapter adapter ;
@@ -36,6 +41,7 @@ public class AptekaListActivity extends AppCompatActivity {
 //        main_toolbar.inflateMenu(R.menu.toolbar_menu);
 //
 
+
         // Аптекалардың тізімін аламыз
         listApteks = AptekaTestList.getListApteks() ;
 
@@ -50,6 +56,25 @@ public class AptekaListActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), AptekaDetailActivity.class) ;
                 intent.putExtra("pid", pid) ;
                 startActivity(intent);
+            }
+        });
+
+
+        aptekaSearch = (EditText)findViewById(R.id.inputAptekSearch) ;
+        aptekaSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 

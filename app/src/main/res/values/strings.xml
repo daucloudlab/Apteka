@@ -7,6 +7,7 @@
     <string name = "search_apteks_title">Поиск аптек</string>
     <string name="search_medikaments_title">Поиск медикаментов</string>
     <string name="phone_title">Позвонить аптеку</string>
+    <string name="get_addresses_title">Получить адрес аптеки</string>
 
     <string name = "nav_menu_item_apteki">Аптеки</string>
     <string name = "nav_menu_item_near_apteki">Карта аптек</string>

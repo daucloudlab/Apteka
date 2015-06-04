@@ -11,6 +11,11 @@
         android:id = "@+id/apteka_list_toolbar"
         layout = "@layout/apteka_list_toolbar" />
 
+    <EditText android:id="@+id/inputAptekSearch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="поиск аптек" />
+
 </LinearLayout>
 
     <LinearLayout

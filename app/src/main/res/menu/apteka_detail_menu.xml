@@ -16,4 +16,10 @@
         android:icon="@mipmap/ic_call_black_18dp"
         app:showAsAction = "ifRoom" />
 
+    <item
+        android:id = "@+id/addresses"
+        android:title = "@string/get_addresses_title"
+        android:orderInCategory="3"
+        app:showAsAction = "never" />
+
 </menu>
