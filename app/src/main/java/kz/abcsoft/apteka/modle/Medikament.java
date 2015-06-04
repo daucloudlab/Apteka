@@ -4,17 +4,22 @@ package kz.abcsoft.apteka.modle;
  * Created by daulet on 6/4/15.
  */
 public class Medikament {
-
+    private int aid ; // apteka id
     private String title ;
     private String description ;
     private double price ;
 
     public Medikament(){}
 
-    public Medikament(String title, String description, double price){
+    public Medikament(int id, String title, String description, double price){
+        this.aid = id ;
         this.title = title ;
         this.description = description ;
         this.price = price ;
+    }
+
+    public int getId(){
+        return aid ;
     }
 
     public String getTitle(){

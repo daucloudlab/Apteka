@@ -30,12 +30,12 @@ public class AptekaDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apteka_detail) ;
 
-        String pid = getIntent().getStringExtra("pid") ;
-        int pidInteger = Integer.parseInt(pid) ;
-
-        List<Apteka> listApteks = AptekaTestList.getListApteks() ;
-
-        Apteka apteka = AptekaTestList.getApteka(pidInteger) ;
+//        String pid = getIntent().getStringExtra("pid") ;
+//        int pidInteger = Integer.parseInt(pid) ;
+//
+//        List<Apteka> listApteks = AptekaTestList.getListApteks() ;
+//
+//        Apteka apteka = AptekaTestList.getApteka(pidInteger) ;
 
 
         viewPager = (ViewPager) findViewById(R.id.pager);
