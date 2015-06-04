@@ -5,14 +5,15 @@ package kz.abcsoft.apteka.modle;
  */
 public class Medikament {
     private int aid ; // apteka id
+    private int cid ; // category id
     private String title ;
     private String description ;
     private double price ;
 
     public Medikament(){}
 
-    public Medikament(int id, String title, String description, double price){
-        this.aid = id ;
+    public Medikament(int aid, String title, String description, double price){
+        this.aid = aid ;
         this.title = title ;
         this.description = description ;
         this.price = price ;

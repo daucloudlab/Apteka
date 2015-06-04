@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import kz.abcsoft.apteka.R;
 
 /**
- * Created by daulet on 6/3/15.
+ * Created by daulet on 6/4/15.
  */
-public class Fragment3 extends Fragment {
+public class Fragment4 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
