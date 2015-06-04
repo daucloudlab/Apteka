@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kz.abcsoft.apteka.R;
@@ -30,17 +31,24 @@ public class Fragment1 extends Fragment {
         String pid = getActivity().getIntent().getStringExtra("pid") ;
         int pidInteger = Integer.parseInt(pid) ;
 
-        List<Apteka> listApteks = AptekaTestList.getListApteks() ;
-        Apteka apteka = AptekaTestList.getApteka(pidInteger) ;
+        ArrayList<Medikament> medikamentsCategory1 =
+                MedikamentTestList.getAptekaMedikamentsByCategory1(getMedikamentsForDifCategory(pidInteger)) ;
 
-        Log.d("ТЕКСЕРУ", apteka.getTitle()) ;
-
-        List<Medikament> medikaments = MedikamentTestList.getAptekaMedikaments(apteka.getId()) ;
         ListView medikamentsListView = (ListView) rootView.findViewById(R.id.listFragment1) ;
         AptekaMedikamentListAdapter medikamentListAdapter = new AptekaMedikamentListAdapter(getActivity(),
-                medikaments) ;
+                medikamentsCategory1) ;
         medikamentsListView.setAdapter(medikamentListAdapter);
 
         return rootView ;
+    }
+
+    private ArrayList<Medikament> getMedikamentsForDifCategory(int id){
+
+        List<Apteka> listApteks = AptekaTestList.getListApteks() ;
+        Apteka apteka = AptekaTestList.getApteka(id) ;
+
+        ArrayList<Medikament> medikaments = MedikamentTestList.getAptekaMedikaments(apteka.getId()) ;
+
+        return medikaments ;
     }
 }

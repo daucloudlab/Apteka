@@ -12,15 +12,20 @@ public class Medikament {
 
     public Medikament(){}
 
-    public Medikament(int aid, String title, String description, double price){
+    public Medikament(int aid, int cid, String title, String description, double price){
+        this.cid = cid ;
         this.aid = aid ;
         this.title = title ;
         this.description = description ;
         this.price = price ;
     }
 
-    public int getId(){
+    public int getAid(){
         return aid ;
+    }
+
+    public int getCid(){
+        return cid ;
     }
 
     public String getTitle(){
