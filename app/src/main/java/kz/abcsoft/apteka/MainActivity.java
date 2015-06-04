@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.mikepenz.materialdrawer.Drawer;
@@ -19,16 +22,25 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import kz.abcsoft.apteka.adapter.AptekaListAdapter;
+import kz.abcsoft.apteka.adapter.MedikamentListAdapter;
 import kz.abcsoft.apteka.map.MapsActivity;
 import kz.abcsoft.apteka.modle.Apteka;
+import kz.abcsoft.apteka.modle.Medikament;
+import kz.abcsoft.apteka.testdata.AptekaTestList;
+import kz.abcsoft.apteka.testdata.MedikamentTestList;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar ;
 
+    private EditText medikamentSearch ;
+    private List<Medikament> listMedikaments ;
+    private List<Apteka> listApteks ;
+    private MedikamentListAdapter adapter ;
 
 
     @Override
@@ -40,8 +52,30 @@ public class MainActivity extends AppCompatActivity {
         initNavigationDrawer();
 
 
+        listApteks = AptekaTestList.getListApteks() ;
+        listMedikaments = MedikamentTestList.getAllMedikaments();
 
+        adapter  = new MedikamentListAdapter(this, listMedikaments, listApteks) ;
+        ListView listView = (ListView)findViewById(R.id.medikaments_list) ;
+        listView.setAdapter(adapter);
 
+        medikamentSearch = (EditText)findViewById(R.id.input_medikament_search) ;
+        medikamentSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
     }
 
