@@ -21,6 +21,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import java.util.ArrayList;
 
 import kz.abcsoft.apteka.adapter.AptekaListAdapter;
+import kz.abcsoft.apteka.map.MapsActivity;
 import kz.abcsoft.apteka.modle.Apteka;
 
 
@@ -98,11 +99,13 @@ public class MainActivity extends AppCompatActivity {
 
                         switch (iDrawerItem.getIdentifier()) {
                             case 1:
-                                Intent intent = new Intent(MainActivity.this, AptekaListActivity.class) ;
-                                startActivity(intent);
+                                Intent intent1 = new Intent(MainActivity.this, AptekaListActivity.class) ;
+                                startActivity(intent1);
                                 return true ;
                             case 2:
-                                return false ;
+                                Intent intent2 = new Intent(MainActivity.this, MapsActivity.class) ;
+                                startActivity(intent2);
+                                return true ;
                             case 3:
                                 return false ;
                         }

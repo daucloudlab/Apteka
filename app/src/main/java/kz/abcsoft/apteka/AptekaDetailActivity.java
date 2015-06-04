@@ -6,6 +6,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import java.util.List;
@@ -63,6 +65,7 @@ public class AptekaDetailActivity extends AppCompatActivity {
 //        });
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.apteka_detail_toolbar) ;
+//        toolbar.inflateMenu(R.id.apteka_detail_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Медикаменты");
@@ -71,5 +74,14 @@ public class AptekaDetailActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.apteka_detail_menu, menu);
+        return true ;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 }

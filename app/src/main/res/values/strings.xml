@@ -5,9 +5,12 @@
     <string name="action_settings">Settings</string>
 
     <string name = "search_apteks_title">Поиск аптек</string>
+    <string name="search_medikaments_title">Поиск медикаментов</string>
+    <string name="phone_title">Позвонить аптеку</string>
 
     <string name = "nav_menu_item_apteki">Аптеки</string>
-    <string name = "nav_menu_item_near_apteki">Ближайщее аптеки</string>
+    <string name = "nav_menu_item_near_apteki">Карта аптек</string>
     <string name = "nav_menu_item_search_medikament">Поиск медикаментов</string>
+    <string name="title_activity_maps">Карта аптек</string>
 
 </resources>
