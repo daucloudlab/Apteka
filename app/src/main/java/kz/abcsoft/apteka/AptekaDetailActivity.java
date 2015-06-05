@@ -42,6 +42,11 @@ public class AptekaDetailActivity extends AppCompatActivity {
         Apteka apteka = AptekaTestList.getApteka(pidInteger) ;
 
         String apteName = apteka.getTitle() ;
+        List<String> aptekaAddresses = apteka.getAddresses() ;
+        StringBuilder sb = new StringBuilder() ;
+        for(String s : aptekaAddresses)
+            sb.append("\n" + s + "\n") ;
+        String aptekaAddressesString = sb.toString() ;
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager()) ;
@@ -53,7 +58,7 @@ public class AptekaDetailActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setTitle("Медикаменты");
-        initAptekDetailToolbar(toolbar, apteName);
+        initAptekDetailToolbar(toolbar, apteName, aptekaAddressesString);
 
 
 
@@ -71,7 +76,7 @@ public class AptekaDetailActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void initAptekDetailToolbar(Toolbar toolbar, String title){
+    private void initAptekDetailToolbar(Toolbar toolbar, String title, final String addresses){
         toolbar = (Toolbar)findViewById(R.id.apteka_detail_toolbar) ;
         toolbar.setTitle("Медикаменты " + title);
         toolbar.setNavigationIcon(R.drawable.previous_24);
@@ -81,6 +86,17 @@ public class AptekaDetailActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 int id = item.getItemId();
 
+                switch (id) {
+                    case R.id.phone:
+                        return false;
+                    case R.id.get_addresses:
+                        Intent outputAddresses = new Intent(getApplicationContext(), OutputAddressesActivity.class) ;
+                        outputAddresses.putExtra("addresses", addresses);
+                        startActivity(outputAddresses);
+                        return true;
+
+                }
+
                 return false;
             }
         });
@@ -88,7 +104,7 @@ public class AptekaDetailActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toListApteks = new Intent(getApplicationContext(), AptekaListActivity.class) ;
+                Intent toListApteks = new Intent(getApplicationContext(), AptekaListActivity.class);
                 startActivity(toListApteks);
 
             }
