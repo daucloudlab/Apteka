@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app = "http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id = "@+id/search"
-        android:title="@string/search_medikaments_title"
-        android:orderInCategory="1"
-        android:icon="@mipmap/ic_action_search"
-        app:showAsAction = "always" />
 
     <item
         android:id = "@+id/phone"
         android:title="@string/phone_title"
-        android:orderInCategory="2"
+        android:orderInCategory="1"
         android:icon="@mipmap/ic_call_black_18dp"
         app:showAsAction = "ifRoom" />
 
     <item
         android:id = "@+id/addresses"
         android:title = "@string/get_addresses_title"
+        android:orderInCategory="2"
+        app:showAsAction = "never" />
+
+    <item
+        android:id = "@+id/phones"
+        android:title = "@string/get_phones_title"
         android:orderInCategory="3"
         app:showAsAction = "never" />
 

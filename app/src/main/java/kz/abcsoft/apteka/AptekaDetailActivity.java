@@ -1,5 +1,6 @@
 package kz.abcsoft.apteka;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import java.util.List;
@@ -32,13 +34,14 @@ public class AptekaDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apteka_detail) ;
 
-//        String pid = getIntent().getStringExtra("pid") ;
-//        int pidInteger = Integer.parseInt(pid) ;
+        String pid = getIntent().getStringExtra("pid") ;
+        int pidInteger = Integer.parseInt(pid) ;
 //
 //        List<Apteka> listApteks = AptekaTestList.getListApteks() ;
 //
-//        Apteka apteka = AptekaTestList.getApteka(pidInteger) ;
+        Apteka apteka = AptekaTestList.getApteka(pidInteger) ;
 
+        String apteName = apteka.getTitle() ;
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager()) ;
@@ -47,9 +50,11 @@ public class AptekaDetailActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.apteka_detail_toolbar) ;
 //        toolbar.inflateMenu(R.id.apteka_detail_toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Медикаменты");
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("Медикаменты");
+        initAptekDetailToolbar(toolbar, apteName);
+
 
 
 
@@ -65,4 +70,32 @@ public class AptekaDetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
+
+    private void initAptekDetailToolbar(Toolbar toolbar, String title){
+        toolbar = (Toolbar)findViewById(R.id.apteka_detail_toolbar) ;
+        toolbar.setTitle("Медикаменты " + title);
+        toolbar.setNavigationIcon(R.drawable.previous_24);
+
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int id = item.getItemId();
+
+                return false;
+            }
+        });
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toListApteks = new Intent(getApplicationContext(), AptekaListActivity.class) ;
+                startActivity(toListApteks);
+
+            }
+        });
+
+        toolbar.inflateMenu(R.menu.apteka_detail_menu) ;
+
+    }
+
 }
