@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initToolbar(){
         toolbar = (Toolbar)findViewById(R.id.main_toolbar) ;
-        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitle(R.string.main_toolbar_title);
 
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                         new PrimaryDrawerItem()
                                 .withName(R.string.nav_menu_item_search_medikament)
                                 .withIdentifier(3)
-                                .withIcon(R.drawable.ic_pill_24)
+                                .withIcon(R.drawable.google_news_24)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
