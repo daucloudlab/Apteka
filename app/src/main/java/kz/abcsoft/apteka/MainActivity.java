@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -77,6 +78,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String stringAID = ((TextView)view.findViewById(R.id.apteka_id)).getText().toString() ;
+                Intent aptekaDetailIntent = new Intent(getApplicationContext(), AptekaDetailActivity.class) ;
+                aptekaDetailIntent.putExtra("pid", stringAID) ;
+                startActivity(aptekaDetailIntent);
+            }
+        });
+
     }
 
     private void initToolbar(){
@@ -86,6 +97,12 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                int id = item.getItemId() ;
+                if(id == R.id.to_apteks_list) {
+                    Intent to_apteks_list_intent = new Intent(MainActivity.this, AptekaListActivity.class);
+                    startActivity(to_apteks_list_intent);
+                    return true ;
+                }
                 return false;
             }
         });
@@ -164,9 +181,6 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

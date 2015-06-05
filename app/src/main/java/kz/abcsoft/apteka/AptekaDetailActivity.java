@@ -44,25 +44,6 @@ public class AptekaDetailActivity extends AppCompatActivity {
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager()) ;
         viewPager.setAdapter(mAdapter);
 
-//        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int i, float v, int i1) {
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                // on changing the page
-//                // make respected tab selected
-//                actionBar.setSelectedNavigationItem(position);
-//
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int i) {
-//
-//            }
-//        });
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.apteka_detail_toolbar) ;
 //        toolbar.inflateMenu(R.id.apteka_detail_toolbar);
