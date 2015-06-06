@@ -59,7 +59,7 @@ public class AptekaMedikamentListAdapter extends BaseAdapter {
 
         title.setText(medikament.getTitle());
         description.setText(medikament.getDescription());
-        price.setText(Double.toString(medikament.getPrice()));
+        price.setText(Double.toString(medikament.getPrice()) + " тг");
 
 
         return convertView;

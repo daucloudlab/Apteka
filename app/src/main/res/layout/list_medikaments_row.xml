@@ -46,7 +46,7 @@
         android:id = "@+id/medikament_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dip"
+        android:layout_marginTop="4dip"
 
         android:layout_centerHorizontal="true"
         android:layout_below="@id/icon_tip"
