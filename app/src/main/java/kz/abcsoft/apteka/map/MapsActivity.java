@@ -11,6 +11,8 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -21,7 +23,6 @@ import kz.abcsoft.apteka.R;
 
 public class MapsActivity extends FragmentActivity {
 
-    ArrayList<MapObjectsCoord> mapObjects ;
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
@@ -73,54 +74,45 @@ public class MapsActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(42.31854237, 69.5962429)).title("Marker"));
+//        mMap.addMarker(new MarkerOptions().position(new LatLng(42.31854237, 69.5962429)).title("Marker"));
 
         mMap.setMyLocationEnabled(true);
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        String provider = locationManager.getBestProvider(criteria, true);
+        Location myLocation = locationManager.getLastKnownLocation(provider);
+        double myLatitude = myLocation.getLatitude();
+        double myLongitude = myLocation.getLongitude();
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.defaultMarker(
+                BitmapDescriptorFactory.HUE_AZURE
+        ) ;
+        mMap.addMarker(new MarkerOptions().position(new LatLng(myLatitude, myLongitude))
+                .icon(bitmapDescriptor)
+                .title("Я нахожусь здесь")) ;
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
 
-//        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-//        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-        //mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-        //mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
-
-        mMap.addMarker(new MarkerOptions().position(new LatLng(42.31854237, 69.5962429)).title("Аптека"));
-
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(new LatLng(42.31854237, 69.5962429))
-                .zoom(12)
+                .target(new LatLng(myLatitude, myLongitude))
+                .zoom(13)
                 .build() ;
         CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition) ;
         mMap.animateCamera(cameraUpdate);
 
+        mMap.addMarker(new MarkerOptions().position(new LatLng(42.31854237, 69.5962429)).title("Аптека 1"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(42.33306634279456, 69.58523947745562)).title("Аптека 2"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(42.337768136670306, 69.59050666540861)).title("Аптека 3"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(42.33212103432582, 69.5817157253623)).title("Аптека 4"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(42.323667401903194, 69.58151590079069)).title("Аптека 5"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(42.317695758479736, 69.5814773440361)).title("Аптека 6"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(42.313774428866246, 69.58416223526001)).title("Аптека 7"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(42.32053724959474, 69.58785999566317)).title("Аптека 8"));
 
 
 
-//        mapObjects = new ArrayList<MapObjectsCoord>() ;
-//        mapObjects.add(new MapObjectsCoord("Аптека 1", 42.31854237, 69.5962429)) ;
-//        mapObjects.add(new MapObjectsCoord("Аптека 2", 42.30003979, 69.60808754)) ;
-//        mapObjects.add(new MapObjectsCoord("Аптека 3", 42.33751535, 69.57873344)) ;
-//        mapObjects.add(new MapObjectsCoord("Аптека 4", 42.33082152, 69.60199356)) ;
-//        mapObjects.add(new MapObjectsCoord("Аптека 5", 42.34224184, 69.62353706)) ;
-//        mapObjects.add(new MapObjectsCoord("Аптека 6", 42.33532645, 69.63632584)) ;
-//        mapObjects.add(new MapObjectsCoord("Аптека 7", 42.34763404, 69.56800461)) ;
-//        mapObjects.add(new MapObjectsCoord("Аптека 8", 42.32022415, 69.56731796)) ;
-//        mapObjects.add(new MapObjectsCoord("Аптека 9", 42.30841899, 69.60611343)) ;
-//        mapObjects.add(new MapObjectsCoord("Аптека 10", 42.32542787, 69.59177971)) ;
-//
-//        for(MapObjectsCoord m : mapObjects){
-//            LatLng cat_monument_position = new LatLng(m.getLongitude(), m.getLatitude());
-//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cat_monument_position,
-//                    13));
-//
-//            mMap.addMarker(new MarkerOptions().title(m.getObjectName())
-//                    .snippet("Бла-бла-бла!")
-//                    .position(cat_monument_position));
-//
-//        }
 
 //---------------------------
 //        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker").snippet("Snippet"));
