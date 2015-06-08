@@ -63,6 +63,7 @@ public class MedikamentListAdapter extends BaseAdapter implements Filterable{
         TextView medikamentTitle = (TextView)convertView.findViewById(R.id.medikament_title) ;
         TextView aptekaTitle = (TextView)convertView.findViewById(R.id.apteka_title) ;
         TextView aptekaID = (TextView)convertView.findViewById(R.id.apteka_id) ;
+        TextView mediakmentID = (TextView)convertView.findViewById(R.id.medikament_id) ;
         TextView medikamentPrice = (TextView)convertView.findViewById(R.id.medikament_price) ;
 
 
@@ -77,6 +78,7 @@ public class MedikamentListAdapter extends BaseAdapter implements Filterable{
 
         }
         aptekaID.setText(Integer.toString(medikament.getAid()));
+        mediakmentID.setText(Integer.toString(medikament.getMid()));
         medikamentPrice.setText(Double.toString(medikament.getPrice()) + " тг");
 
         return convertView;

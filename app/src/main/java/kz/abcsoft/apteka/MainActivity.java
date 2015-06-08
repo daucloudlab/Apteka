@@ -82,9 +82,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String stringAID = ((TextView)view.findViewById(R.id.apteka_id)).getText().toString() ;
-                Intent aptekaDetailIntent = new Intent(getApplicationContext(), AptekaDetailActivity.class) ;
-                aptekaDetailIntent.putExtra("pid", stringAID) ;
-                startActivity(aptekaDetailIntent);
+                String stringMID = ((TextView)view.findViewById(R.id.medikament_id)).getText().toString() ;
+                Intent medikamentDetailIntent = new Intent(getApplicationContext(), MedikamentDetailActivity.class) ;
+                medikamentDetailIntent.putExtra("pid", stringAID) ;
+                medikamentDetailIntent.putExtra("mid", stringMID) ;
+                startActivity(medikamentDetailIntent);
             }
         });
 

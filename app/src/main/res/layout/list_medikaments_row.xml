@@ -33,6 +33,14 @@
         android:layout_alignParentLeft="true"
         android:visibility="gone"/>
 
+    <TextView
+        android:id = "@+id/medikament_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/apteka_id"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone"/>
+
 
     <ImageView
         android:id = "@+id/icon_tip"
