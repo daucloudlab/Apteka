@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
     <include android:id = "@+id/apteka_detail_toolbar"
-    layout = "@layout/apteka_detail_toolbar" />
+    layout = "@layout/main_toolbar" />
 
     </LinearLayout>
 

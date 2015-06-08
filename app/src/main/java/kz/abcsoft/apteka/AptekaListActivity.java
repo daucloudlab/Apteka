@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -28,19 +29,21 @@ public class AptekaListActivity extends AppCompatActivity {
     List<Apteka> listApteks ;
     AptekaListAdapter adapter ;
 
+    Toolbar toolbar ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apteka_list);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.apteka_list_toolbar) ;
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Список Аптек");
+//        Toolbar toolbar = (Toolbar)findViewById(R.id.apteka_list_toolbar) ;
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("Список Аптек");
 //        main_toolbar.setTitle("Список Аптек");
 //        main_toolbar.inflateMenu(R.menu.toolbar_menu);
 //
-
+        initAptekListToolbar() ;
 
         // Аптекалардың тізімін аламыз
         listApteks = AptekaTestList.getListApteks() ;
@@ -80,4 +83,23 @@ public class AptekaListActivity extends AppCompatActivity {
 
 
     }
+
+    private void initAptekListToolbar(){
+        toolbar = (Toolbar)findViewById(R.id.apteka_list_toolbar) ;
+        toolbar.setTitle("Список Аптек" );
+        toolbar.setNavigationIcon(R.drawable.previous_24);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toMainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(toMainActivity);
+
+            }
+        });
+
+//        toolbar.inflateMenu(R.menu.apteka_detail_menu) ;
+
+    }
+
 }

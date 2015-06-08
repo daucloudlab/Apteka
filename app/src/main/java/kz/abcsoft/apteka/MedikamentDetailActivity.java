@@ -2,6 +2,7 @@ package kz.abcsoft.apteka;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import kz.abcsoft.apteka.modle.Apteka;
@@ -18,6 +19,7 @@ public class MedikamentDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medikament_detail);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.activity_medikament_detail_toolbar) ;
 
         String pid= getIntent().getStringExtra("pid") ;
         int pidInteger = Integer.parseInt(pid) ;

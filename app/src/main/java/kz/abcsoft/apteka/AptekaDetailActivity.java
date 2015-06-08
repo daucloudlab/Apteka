@@ -27,6 +27,7 @@ public class AptekaDetailActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabsPagerAdapter mAdapter;
 
+    private Toolbar toolbar ;
 
 
     @Override
@@ -53,7 +54,7 @@ public class AptekaDetailActivity extends AppCompatActivity {
         viewPager.setAdapter(mAdapter);
 
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.apteka_detail_toolbar) ;
+//        Toolbar toolbar = (Toolbar)findViewById(R.id.apteka_detail_toolbar) ;
 //        toolbar.inflateMenu(R.id.apteka_detail_toolbar);
 //        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
