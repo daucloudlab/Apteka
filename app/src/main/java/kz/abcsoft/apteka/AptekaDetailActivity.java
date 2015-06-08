@@ -1,6 +1,7 @@
 package kz.abcsoft.apteka;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -89,7 +90,10 @@ public class AptekaDetailActivity extends AppCompatActivity {
 
                 switch (id) {
                     case R.id.phone:
-                        return false;
+                        Intent callIntent = new Intent(Intent.ACTION_CALL);
+                        callIntent.setData(Uri.parse("tel:+77078914322"));
+                        startActivity(callIntent);
+                        return true;
                     case R.id.get_addresses:
                         Intent outputAddresses = new Intent(getApplicationContext(), OutputAddressesActivity.class) ;
                         outputAddresses.putExtra("addresses", addresses);
