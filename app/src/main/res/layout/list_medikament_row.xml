@@ -27,6 +27,14 @@
         android:text = "Описание"/>
 
     <TextView
+        android:id = "@+id/mid_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone"/>
+
+    <TextView
         android:id = "@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

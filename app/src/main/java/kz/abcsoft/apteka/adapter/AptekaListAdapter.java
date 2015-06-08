@@ -61,6 +61,7 @@ public class AptekaListAdapter extends BaseAdapter implements Filterable {
         TextView phone = (TextView) convertView.findViewById(R.id.phone);
         TextView address = (TextView) convertView.findViewById(R.id.address);
         TextView pid = (TextView) convertView.findViewById(R.id.pid);
+//        TextView mid = (TextView)convertView.findViewById(R.id.mid_in_apteki_list) ;
 
         Apteka apteka = filteredData.get(position);
 

@@ -40,7 +40,14 @@
         android:layout_below="@id/address"
         android:layout_alignParentLeft="true"
         android:visibility="gone"/>
-    
+ <!--   <TextView
+        android:id = "@+id/mid_in_apteki_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pid"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone"/>
+-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

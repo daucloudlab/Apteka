@@ -54,11 +54,13 @@ public class AptekaMedikamentListAdapter extends BaseAdapter {
         TextView title = (TextView)convertView.findViewById(R.id.title) ;
         TextView description = (TextView)convertView.findViewById(R.id.description) ;
         TextView price = (TextView)convertView.findViewById(R.id.price) ;
+        TextView mid = (TextView)convertView.findViewById(R.id.mid_field) ;
 
         Medikament medikament = medikaments.get(position) ;
 
         title.setText(medikament.getTitle());
         description.setText(medikament.getDescription());
+        mid.setText(Integer.toString(medikament.getMid()));
         price.setText(Double.toString(medikament.getPrice()) + " тг");
 
 
