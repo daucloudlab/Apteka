@@ -93,11 +93,13 @@ public class AptekaDetailActivity extends AppCompatActivity {
                         Intent callIntent = new Intent(Intent.ACTION_CALL);
                         callIntent.setData(Uri.parse("tel:+77078914322"));
                         startActivity(callIntent);
+                        //finish() ;
                         return true;
                     case R.id.get_addresses:
                         Intent outputAddresses = new Intent(getApplicationContext(), OutputAddressesActivity.class) ;
                         outputAddresses.putExtra("addresses", addresses);
                         startActivity(outputAddresses);
+//                        finish() ;
                         return true;
 
                 }

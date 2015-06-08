@@ -59,6 +59,7 @@ public class AptekaListActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), AptekaDetailActivity.class) ;
                 intent.putExtra("pid", pid) ;
                 startActivity(intent);
+                finish() ;
             }
         });
 

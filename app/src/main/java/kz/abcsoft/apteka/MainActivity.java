@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 if(id == R.id.to_apteks_list) {
                     Intent to_apteks_list_intent = new Intent(MainActivity.this, AptekaListActivity.class);
                     startActivity(to_apteks_list_intent);
+                    finish() ;
                     return true ;
                 }
                 return false;

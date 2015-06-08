@@ -3,6 +3,7 @@ package kz.abcsoft.apteka;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import kz.abcsoft.apteka.modle.Apteka;
@@ -20,6 +21,13 @@ public class MedikamentDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medikament_detail);
         Toolbar toolbar = (Toolbar)findViewById(R.id.activity_medikament_detail_toolbar) ;
+//        toolbar.setNavigationIcon(R.drawable.previous_24);
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
 
         String pid= getIntent().getStringExtra("pid") ;
         int pidInteger = Integer.parseInt(pid) ;
@@ -36,8 +44,8 @@ public class MedikamentDetailActivity extends AppCompatActivity {
         Apteka apteka = AptekaTestList.getApteka(pidInteger) ;
         aptekaName.setText("Название аптеки: " + apteka.getTitle()) ;
 
-        medikamentName.setText("Название медикамента " + concreteMedikament.getTitle());
-        medikamentDescription.setText("Характеристика медикамента " + concreteMedikament.getDescription());
+        medikamentName.setText("Название медикамента: " + concreteMedikament.getTitle());
+        medikamentDescription.setText("Характеристика медикамента: " + concreteMedikament.getDescription());
         medikamentPrice.setText( "Цена медикамента: " + Double.valueOf(concreteMedikament.getPrice()).toString() + " тг.");
 
     }
